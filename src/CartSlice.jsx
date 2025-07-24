@@ -19,7 +19,8 @@ export const CartSlice = createSlice({
         }
       },
     removeItem: (state, action) => {
-        state.items = state.items.filter(item => item.name !== action.payload);
+        const { name } = action.payload;// Destructure the product name from the action payload
+        state.items = state.items.filter(item => item.name !== name);
     },
     updateQuantity: (state, action) => {
         const { name, quantity } = action.payload; // Destructure the product name and new quantity from the action payload
@@ -31,6 +32,10 @@ export const CartSlice = createSlice({
     },
   },
 });
+
+export const selectIsProductInCart = (state, productId) => {
+    return state.cart.items.some(item => item.id === productId);
+};
 
 export const { addItem, removeItem, updateQuantity } = CartSlice.actions;
 
