@@ -346,7 +346,7 @@ function ProductList({ onHomeClick }) {
 
                 </div>
             ) : (
-                <CartItem onContinueShopping={handleContinueShopping }  onhandleRemoveFromCart={handleContinueShopping }/>
+                <CartItem onContinueShopping={handleContinueShopping }  onhandleRemoveFromCart={handleRemoveFromCart}/>
             )}
         </div>
     );
